@@ -5,6 +5,16 @@
 [![Windsurf](https://img.shields.io/badge/Windsurf-1.12.2-green.svg)]()
 [![Coder](https://img.shields.io/badge/Coder-Compatible-orange.svg)]()
 
+## 🚨 CRITICAL UPDATE (2025-08-28)
+
+### ⚠️ Root Cause Identified: Localhost Connection Architecture Mismatch
+
+After extensive debugging, we've identified that the issue is not with the proxy implementation but with Windsurf Cascade's connection configuration. **[See full analysis](CRITICAL-FINDING-LOCALHOST-CONNECTION-BUG.md)**
+
+**TL;DR:** Windsurf Cascade tries to connect to `127.0.0.1:37789` on the HOST machine, but needs to connect to `172.17.0.2:48359` (the Docker container's proxy).
+
+---
+
 ## 🚨 The Problem
 
 Windsurf Cascade AI assistant gets stuck on "warming up" in Coder containerized workspaces hosted on AWS EC2. This prevents developers from using AI-assisted coding features in remote development environments.
